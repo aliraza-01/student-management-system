@@ -49,18 +49,16 @@ def add_student(students):
                 if student["Roll Number"] == roll_number:
                     print("Already exists")
                     found = True
-
-            if not found:
-                found = False
-                break
-
-            
-                
+                    break
+            if found:
+                continue
+                        
         except ValueError:
             print("Please enter value in number: ")
             continue
         try:
             age = int(input("Enter the age of student: "))
+            break
         except ValueError:
             print("Please enter value in number: ")
             continue
@@ -75,7 +73,13 @@ def add_student(students):
 
 students = load_students()
 def search_student(students):
-    search = int(input("Enter the student you want to search: "))
+    while True:
+        try:
+            search = int(input("Enter the student you want to search: "))
+            break
+        except ValueError:
+            print("Please enter integer value")
+            continue
     found = False
 
     for index ,student in enumerate(students,start=1):
@@ -88,24 +92,30 @@ def search_student(students):
             found = True
     if not found:
         print("Not found any student")  
-            
 def delete_student(students):
-    del_student = int(input("Enter the Roll Number of the student: "))
+    while True:
+        try:
+            del_student = int(input("Enter the Roll Number of the student: "))
+            break
+        except ValueError:
+            print("Please Enter a Valid Value.")
+
     found = False
+
     for student in students:
         if student["Roll Number"] == del_student:
             students.remove(student)
             found = True
             save_students(students)
-            print("Student deleted successfully")
+            print("Student deleted successfully.")
             return
+
     if not found:
-        print("Not found")
-        return      
+        print("Student not found.")    
 def update_student(students):
     while True:
         try:
-            find_sutdent = int(input("Please enter the student Roll No: "))
+            find_student = int(input("Please enter the student Roll No: "))
             break
         except ValueError:
             print("Enter Roll Number in integer formate")
@@ -113,7 +123,7 @@ def update_student(students):
     
     found = False
     for student in students:
-        if student["Roll Number"] == find_sutdent:
+        if student["Roll Number"] == find_student:
             found = True
             print(f"Name: {student['Name']}")
             user_choice = None
@@ -149,7 +159,7 @@ def update_student(students):
                 if student["Age"] == new_age:
                     while True:
                         print("You enter the old age.")
-                        old_age_check = input("Do you want to keep the old age? Y/N: ")
+                        old_age_check = input("Do you want to keep the old age? Y/N: ").upper()
                         if old_age_check == "N":
                             break
                         elif old_age_check == "Y":
@@ -171,14 +181,6 @@ def update_student(students):
                     break
             save_students(students)
             print("Student updated successfully.")
-
-
-
-
-
-                                        
-
-
             
     if not found:
         print("Student Not found")
