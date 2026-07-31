@@ -1,21 +1,38 @@
-#Student Management System
-A command line Student Management System built with Python.
+# 🎓 Student Management System
 
+A command-line Student Management System built with Python. It allows users to add, view, search, update, and delete student records. Student data is stored locally using a JSON file.
 
-## Features
--Add Student
--View Student
--Delete Student
--search Student
--Update Student
+---
+
+## ✨ Features
+
+- Add a new student
+- View all students
+- Search students by Roll Number
+- Update student information
+- Delete student records
+- Store data in a JSON file
+- Input validation using exception handling 
 
 
 ## Technologies Used
 
--Python
--json
--Git
--GitHub
+- Python
+- JSON
+- Git
+- GitHub
+
+## 📁 Project Structure
+
+```
+Student Management System/
+│
+├── main.py          # Main application
+├── students.json    # Student data
+├── README.md        # Project documentation
+└── .gitignore       # Git ignore rules
+```
+
 
 ## How to Run
 1. Clone  the repository.
@@ -24,5 +41,5 @@ A command line Student Management System built with Python.
 
 
 ```bash
-main.py
+python main.py
 ```
