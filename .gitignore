@@ -1,0 +1,9 @@
+# Python cache files
+__pycache__/
+*.pyc
+
+# VS Code settings
+.vscode/
+
+# Personal practice file
+demo.py
